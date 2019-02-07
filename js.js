@@ -11,6 +11,8 @@ function Encrypt(key,string){
 				return String.fromCharCode(((code + key - 97)%26)+97);
 			else if(code == 32)
 				return '$';
+			else if(code >= 48 && code <= 57)
+				return String.fromCharCode(((code + key - 48)%10)+48);
 		}).join('');
 }
 
@@ -24,6 +26,8 @@ function Decrypt(key,string){
 				return String.fromCharCode(((code - key + 26 - 97)%26) + 97);
 			else if(code == 36)
 				return ' ';
+			else if(code >= 48 && code <= 57)
+				return String.fromCharCode(((code - key + 10 - 48)%10)+48);
 		}).join('');
 }
 
